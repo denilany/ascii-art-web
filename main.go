@@ -1,13 +1,14 @@
 package main
 
 import (
-	"asciiweb/printart"
-	"asciiweb/read"
 	"fmt"
 	"log"
 	"net/http"
 	"path/filepath"
 	"text/template"
+
+	"asciiweb/printart"
+	"asciiweb/read"
 )
 
 type Response struct {
@@ -52,6 +53,7 @@ func asciiArt(w http.ResponseWriter, r *http.Request) {
 
 	bannerPath := filepath.Join("banner", banner+".txt")
 	bannerSlice, err := read.ReadAscii(bannerPath)
+	fmt.Println(bannerPath)
 	if err != nil {
 		http.Error(w, "server error", http.StatusInternalServerError)
 		return
