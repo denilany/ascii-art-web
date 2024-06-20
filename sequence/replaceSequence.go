@@ -3,7 +3,7 @@ package sequence
 import "strings"
 
 func Replace(input string) string {
-	input = strings.ReplaceAll(input, "\\n", "\n")
+	input = strings.ReplaceAll(input, "\\n", "\r\n")
 	input = strings.ReplaceAll(input, "\\t", "    ")
 	input = strings.ReplaceAll(input, "\\b", "\b")
 

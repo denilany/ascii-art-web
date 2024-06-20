@@ -10,7 +10,7 @@
     <div class="container">
         <h1>ASCII Art Web</h1>
         <form action="/asciiart" method="POST">
-            <div>
+            <div class="flex">
                 <label for="text">Text:</label><br>
                 <textarea rows="3" cols="30" type="text" id="text" name="text" placeholder="Type something..."></textarea><br>  
             </div>
@@ -24,17 +24,21 @@
                 </select>
             </div>
             <div class="btn">
-                <button type="submit">Print</button>
+                <button type="submit">Generate</button>
             </div>
         </form>
-        <div><pre style="padding-top: 1em; padding-bottom: 1em;">Input: {{.Text}}</pre></div>
-        <div> <h2>Result:</h2></div>
-        <div style="border: 5px solid skyblue; margin-top:1em ; border-radius: 5px;">
+        <div class="result">
+            <pre>Input: {{.Text}}</pre>
+        </div>
+        <div> 
+            <h2>Result:</h2>
+        </div>
+        <div class="result-box">
             {{if .Result}}
            
             <pre>{{.Result}}</pre>
             {{end}}
         </div>
-        </div>
+    </div>
 </body>
 </html>
