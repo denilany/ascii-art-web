@@ -17,7 +17,7 @@ func AsciiArt(bannerSlice []string, input string) string {
 	input = sequence.ReplaceUnprint(input)
 	input = sequence.Replace(input)
 
-	arguments := strings.Split(input, "\n")
+	arguments := strings.Split(input, "\r\n")
 
 	for _, word := range arguments {
 		if word == "" {
