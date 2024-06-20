@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+	"strings"
 	"text/template"
 
 	"asciiweb/printart"
@@ -19,6 +20,7 @@ type Response struct {
 func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/asciiart", asciiArt)
+	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("style"))))
 	log.Printf("Server started at http://localhost:9000\n")
 	log.Fatal(http.ListenAndServe(":9000", nil))
 }
@@ -36,21 +38,20 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func asciiArt(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
+	if strings.ToUpper(r.Method) != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
 	text := r.FormValue("text")
-	// log.Fatalf("text: %s",text)
+
 	banner := r.FormValue("banner")
-	// log.Fatalf("banner: %v", banner)
 
 	if text == "" || banner == "" {
 		http.Error(w, "Bad Request", http.StatusBadRequest)
 		return
 	}
-
+	// r.Method
 	bannerPath := filepath.Join("banner", banner+".txt")
 	bannerSlice, err := read.ReadAscii(bannerPath)
 	fmt.Println(bannerPath)
@@ -68,5 +69,6 @@ func asciiArt(w http.ResponseWriter, r *http.Request) {
 
 	tmpl.Execute(w, map[string]string{
 		"Result": result,
+		"Text":   text,
 	})
 }

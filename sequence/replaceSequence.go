@@ -6,7 +6,7 @@ func Replace(input string) string {
 	input = strings.ReplaceAll(input, "\\n", "\n")
 	input = strings.ReplaceAll(input, "\\t", "    ")
 	input = strings.ReplaceAll(input, "\\b", "\b")
-	 
+
 	for {
 		index := strings.Index(input, "\b")
 
