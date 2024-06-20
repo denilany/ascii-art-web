@@ -1,26 +1,33 @@
 package read
 
 import (
+	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func ReadAscii(banner string) ([]string, error) {
-	file, err := os.ReadFile(banner)
+	file, err := os.Open(banner)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	fileInfo, err := file.Stat()
 	if err != nil {
 		return nil, err
 	}
 
-	if len(file) == 0 {
-		return nil, fmt.Errorf("empty file")
+	if fileInfo.Size() == 0 {
+		fmt.Printf("file appears to be empty\n")
+		os.Exit(1)
 	}
 
+	newScan := bufio.NewScanner(file)
 	var splitData []string
-	if banner == "thinkertoy.txt" {
-		splitData = strings.Split(string(file), "\r\n")
-	} else {
-		splitData = strings.Split(string(file), "\n")
+	for newScan.Scan() {
+		line := newScan.Text()
+		splitData = append(splitData, line)
 	}
 	return splitData, nil
 }
