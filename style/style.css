@@ -14,7 +14,6 @@ body {
 .container {
     margin: 50px auto;
     padding: 15px;
-    /* background-color: aqua; */
     text-align: center;
     gap: 10px;
     max-width: 85vw;
@@ -25,18 +24,23 @@ body {
 
 h1 {
     padding: 10px;
-    /* font-weight: 400; */
 }
 
 p {
     padding-bottom: 10px;
 }
 
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
 #text {
     text-decoration: none;
+    background-color: antiquewhite;
     font-size: 48px;
     padding: 5px;
-    margin-bottom: 1em;
+    margin-bottom: 0.2em;
     border: none;
     outline: none;
     border-top-left-radius: 10px;
@@ -44,10 +48,12 @@ p {
 }
 #text::placeholder {
     font-size:0.5em;
+    text-align: center;
     padding: 3em 4em;
 }
 #banner {
     padding: 20px 40px;
+    background-color: bisque;
     margin-top: 20px;
     font-size: 24px;
     border-radius: 10px;
@@ -80,5 +86,24 @@ p {
 }
 
 .result {
-    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.result > pre {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+h2 {
+    margin-top: 0.2em;
+}
+
+.result-box {
+    border: 5px solid bisque;
+    border-radius: 5px;
+    overflow-x: auto;
+    word-wrap: break-word;
+    margin-top: 1em;
+    padding: 1em;
 }
