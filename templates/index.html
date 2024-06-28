@@ -9,16 +9,16 @@
 <body>
     <div class="container">
         <h1>ASCII Art Web</h1>
-        <form action="/asciiart" method="POST">
+        <form action="/ascii-art" method="POST">
             <div class="flex">
                 <label for="text">Text:</label><br>
-                <textarea rows="3" cols="30" type="text" id="text" name="text" placeholder="Type something..."></textarea><br>  
+                <textarea rows="3" cols="30" type="text" id="text" name="text" placeholder="Type something..." required></textarea><br>  
             </div>
             
             <div>
                 <label for="banner"> Select Banner Files</label><br>
-                <select name="banner" id="banner" required>
-                    <option value="" disabled selected hidden>Select Banner</option>
+                <select name="banner" id="banner">
+                    <option value="" hidden selected disabled>Select banner</option>
                     <option value="standard">Standard</option>
                     <option value="shadow">Shadow</option>
                     <option value="thinkertoy">Thinkertoy</option>
