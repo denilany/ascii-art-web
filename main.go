@@ -26,6 +26,10 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.Error(w, "page not found", http.StatusNotFound)
+		return
+	}
 	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		fmt.Fprintf(w, "error: %s", err)
@@ -38,6 +42,10 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func asciiArt(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/ascii-art" {
+		http.Error(w, "page not found", http.StatusNotFound)
+		return
+	}
 	if strings.ToUpper(r.Method) != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 		return
