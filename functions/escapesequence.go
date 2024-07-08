@@ -1,10 +1,10 @@
-package sequence
+package functions
 
 import (
 	"strings"
 )
 
-func ReplaceUnprint(input string) string {
+func replaceUnprint(input string) string {
 	char := []string{"\\a", "\\r", "\\f", "\\v", "\\`", "\\x20"}
 
 	for _, wrd := range char {

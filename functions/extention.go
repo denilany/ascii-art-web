@@ -1,4 +1,4 @@
-package extension
+package functions
 
 import (
 	"path/filepath"

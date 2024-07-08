@@ -1,4 +1,4 @@
-package read
+package functions
 
 import (
 	"bufio"

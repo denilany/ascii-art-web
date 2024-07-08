@@ -9,8 +9,7 @@ import (
 	"strings"
 	"text/template"
 
-	"asciiweb/printart"
-	"asciiweb/read"
+	"asciiweb/functions"
 )
 
 type Response struct {
@@ -27,7 +26,7 @@ const (
 func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/ascii-art", asciiArt)
-	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("style"))))
+	http.Handle("/static/style/", http.StripPrefix("/static/style/", http.FileServer(http.Dir("./static/style/"))))
 	log.Printf("Server started at http://localhost:9000\n")
 	log.Fatal(http.ListenAndServe(":9000", nil))
 }
@@ -39,7 +38,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 	}
 	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
-		fmt.Fprintf(w, "error: %s", err)
+		fmt.Println(err)
+		serveError(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
 	data := Response{
@@ -68,14 +68,14 @@ func asciiArt(w http.ResponseWriter, r *http.Request) {
 	}
 	// r.Method
 	bannerPath := filepath.Join("banner", banner+".txt")
-	bannerSlice, err := read.ReadAscii(bannerPath)
+	bannerSlice, err := functions.ReadAscii(bannerPath)
 	fmt.Println(bannerPath)
 	if err != nil {
 		serveError(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
 
-	result := printart.AsciiArt(bannerSlice, text)
+	result := functions.AsciiArt(bannerSlice, text)
 	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		serveError(w, "internal server error", http.StatusInternalServerError)

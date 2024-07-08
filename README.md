@@ -35,7 +35,7 @@ This program is authored by [Denil Anyonyi](https://learn.zone01kisumu.ke/git/da
 
 * On execution, the output will be displayed as below:
 
-![Preview of the Generated ASCII-Art on the Web Server](img/ASCII_ART_Representation.png)
+![Preview of the Generated ASCII-Art on the Web Server](static/img/ASCII_ART_Representation.png)
 
 
 ## Implementation

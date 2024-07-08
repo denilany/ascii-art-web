@@ -1,10 +1,10 @@
-package printart
+package functions
 
 import (
 	"fmt"
 	"strings"
 
-	"asciiweb/sequence"
+	
 )
 
 const (
@@ -14,8 +14,8 @@ const (
 func AsciiArt(bannerSlice []string, input string) string {
 	var result strings.Builder
 
-	input = sequence.ReplaceUnprint(input)
-	input = sequence.Replace(input)
+	input = replaceUnprint(input)
+	input = replace(input)
 
 	arguments := strings.Split(input, "\r\n")
 

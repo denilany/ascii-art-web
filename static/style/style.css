@@ -88,6 +88,7 @@ p {
 .result {
     padding-top: 1em;
     padding-bottom: 1em;
+    text-align: left;
 }
 
 .result > pre {
@@ -100,6 +101,7 @@ h2 {
 }
 
 .result-box {
+    text-align: left;
     border: 5px solid bisque;
     border-radius: 5px;
     overflow-x: auto;

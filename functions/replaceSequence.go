@@ -1,8 +1,8 @@
-package sequence
+package functions
 
 import "strings"
 
-func Replace(input string) string {
+func replace(input string) string {
 	input = strings.ReplaceAll(input, "\\n", "\r\n")
 	input = strings.ReplaceAll(input, "\\t", "    ")
 	input = strings.ReplaceAll(input, "\\b", "\b")
