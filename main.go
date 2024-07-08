@@ -19,9 +19,9 @@ type Response struct {
 }
 
 const (
-	StatusNotFound               = 404 
-	StatusBadRequest             = 400
-	StatusInternalServerError    = 500
+	StatusNotFound            = 404
+	StatusBadRequest          = 400
+	StatusInternalServerError = 500
 )
 
 func main() {
@@ -100,7 +100,7 @@ func serveError(w http.ResponseWriter, errVal string, statusCode int) {
 
 	w.WriteHeader(statusCode) // Set the HTTP status code
 
-	err = tmpl.Execute(w, struct{ ErrorMsg string }{ErrorMsg: code+" "+errVal})
+	err = tmpl.Execute(w, struct{ ErrorMsg string }{ErrorMsg: code + " " + errVal})
 	if err != nil {
 		log.Fatalf("error executing template: %v\n", err)
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
