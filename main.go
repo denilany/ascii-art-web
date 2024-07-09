@@ -9,7 +9,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", functions.Index)
-	http.HandleFunc("/ascii-art", functions.AsciiArt)
+	http.HandleFunc("/ascii-art", functions.Ascii)
 
 	staticDir := "./static/style/"
 	staticURL := "/static/style/"

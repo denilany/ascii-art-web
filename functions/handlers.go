@@ -35,7 +35,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, data)
 }
 
-func AsciiArt(w http.ResponseWriter, r *http.Request) {
+func Ascii(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/ascii-art" {
 		ServeError(w, "page not found", http.StatusNotFound)
 		return
@@ -53,7 +53,7 @@ func AsciiArt(w http.ResponseWriter, r *http.Request) {
 		ServeError(w, "Bad Request", http.StatusBadRequest)
 		return
 	}
-	// r.Method
+
 	bannerPath := filepath.Join("banner", banner+".txt")
 	bannerSlice, err := readAscii(bannerPath)
 	fmt.Println(bannerPath)
