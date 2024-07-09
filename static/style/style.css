@@ -35,6 +35,10 @@ p {
     flex-direction: column;
 }
 
+form {
+    margin-bottom: 10px;
+}
+
 #text {
     text-decoration: none;
     background-color: antiquewhite;
@@ -86,6 +90,8 @@ p {
 }
 
 .result {
+    max-height: 150px;
+    overflow-y: scroll;
     padding-top: 1em;
     padding-bottom: 1em;
 }
@@ -96,8 +102,12 @@ p {
     padding-bottom: 0.2em;
 }
 
-.result left_1, .result left_2 {
+.result .left_1, .result .left_2 {
     text-align: left;
+}
+
+.result .left_2 {
+    color: antiquewhite;
 }
 
 h2 {
@@ -112,6 +122,7 @@ h2 {
     word-wrap: break-word;
     margin-top: 1em;
     padding: 1em;
+    max-height: 620px;
 }
 
 .separator {
