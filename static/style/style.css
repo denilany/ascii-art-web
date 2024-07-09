@@ -88,12 +88,16 @@ p {
 .result {
     padding-top: 1em;
     padding-bottom: 1em;
-    text-align: left;
 }
 
 .result > pre {
+    display: inline-block;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
+}
+
+.result left_1, .result left_2 {
+    text-align: left;
 }
 
 h2 {
