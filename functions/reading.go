@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func ReadAscii(banner string) ([]string, error) {
+func readAscii(banner string) ([]string, error) {
 	file, err := os.Open(banner)
 	if err != nil {
 		return nil, err

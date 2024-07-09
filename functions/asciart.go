@@ -12,12 +12,12 @@ func Ascii() {
 		return
 	}
 
-	readFile, err := ReadAscii("thinkertoy.txt")
+	readFile, err := readAscii("thinkertoy.txt")
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
 
-	art := AsciiArt(readFile, "hello")
+	art := asciiArt(readFile, "hello")
 
 	fmt.Print(art)
 }

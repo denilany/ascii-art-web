@@ -3,15 +3,13 @@ package functions
 import (
 	"fmt"
 	"strings"
-
-	
 )
 
 const (
 	asciiHeight = 8
 )
 
-func AsciiArt(bannerSlice []string, input string) string {
+func asciiArt(bannerSlice []string, input string) string {
 	var result strings.Builder
 
 	input = replaceUnprint(input)
