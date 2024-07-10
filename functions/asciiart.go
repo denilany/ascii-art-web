@@ -9,11 +9,16 @@ const (
 	asciiHeight = 8
 )
 
-func asciiArt(bannerSlice []string, input string) string {
+func asciiArt(bannerSlice []string, input string) (string, error) {
 	var result strings.Builder
 
 	input = replaceUnprint(input)
 	input = replace(input)
+	for _, ch := range input {
+		if ch < 32 || ch > 126 {
+			return "", fmt.Errorf("contains a non-printable character")
+		}
+	}
 
 	arguments := strings.Split(input, "\r\n")
 
@@ -30,5 +35,5 @@ func asciiArt(bannerSlice []string, input string) string {
 			}
 		}
 	}
-	return result.String()
+	return result.String(), nil
 }

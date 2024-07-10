@@ -67,7 +67,13 @@ func Ascii(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	result := asciiArt(bannerSlice, text)
+	result, err1 := asciiArt(bannerSlice, text)
+	if err1 != nil {
+		ServeError(w, "Bad Request", http.StatusBadRequest)
+		fmt.Println(err1)
+
+		return
+	}
 	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		ServeError(w, "internal server error", http.StatusInternalServerError)
