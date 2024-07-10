@@ -23,6 +23,11 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		ServeError(w, "Page not found", http.StatusNotFound)
 		return
 	}
+
+	if r.Method == http.MethodGet {
+		fmt.Println("OK: ", http.StatusOK)
+	}
+
 	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		fmt.Println(err)
