@@ -15,7 +15,7 @@ func asciiArt(bannerSlice []string, input string) (string, error) {
 	input = replaceUnprint(input)
 	input = replace(input)
 	for _, ch := range input {
-		if ch < 32 || ch > 126 {
+		if (ch < 32 || ch > 126) && string(ch) != "\r" && string(ch) != "\n" {
 			return "", fmt.Errorf("contains a non-printable character")
 		}
 	}
