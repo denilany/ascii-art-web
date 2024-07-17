@@ -24,7 +24,7 @@ func asciiArt(bannerSlice []string, input string) (string, error) {
 
 	for _, word := range arguments {
 		if word == "" {
-			fmt.Println()
+			result.WriteString("\n")
 		} else {
 			for j := 0; j < asciiHeight; j++ {
 				for _, ch := range word {
