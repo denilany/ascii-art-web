@@ -10,7 +10,7 @@ This program is written in Go, HTML(Hypertext Markup Language), and styled using
 This program is authored by [Denil Anyonyi](https://learn.zone01kisumu.ke/git/danyonyi), [Brian Shisia](https://learn.zone01kisumu.ke/git/bshisia) and [Joel Amos](https://learn.zone01kisumu.ke/git/jamos)
 
 
-## Usage: how to run
+## Usage: 
 
 * Set up Go language on your machine depending on your system's operating system by following the steps in the official [Go page](https://go.dev/doc/install).
 
